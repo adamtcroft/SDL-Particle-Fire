@@ -47,10 +47,7 @@ namespace caveofprogramming
 
 		m_buffer = new Uint32[SCREEN_SIZE];
 
-		for (int i = 0; i < SCREEN_SIZE; i++)
-		{
-			m_buffer[i] = 0x000000FF;
-		}
+		this->clear();
 
 		return true;
 	}
@@ -61,6 +58,11 @@ namespace caveofprogramming
 		SDL_RenderClear(m_renderer);
 		SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
 		SDL_RenderPresent(m_renderer);
+	}
+
+	void Screen::clear()
+	{
+		memset(m_buffer, 0, SCREEN_SIZE * sizeof(Uint32));
 	}
 
 	void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue)

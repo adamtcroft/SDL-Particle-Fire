@@ -12,8 +12,9 @@ namespace caveofprogramming
 	public:
 		const static int NPARTICLES = 5000;
 
+		void update();
+		const Particle * const getParticles() { return m_p_Particles; };
 		Swarm();
 		virtual ~Swarm();
-		const Particle * const getParticles() { return m_p_Particles; } ;
 	};
 }
