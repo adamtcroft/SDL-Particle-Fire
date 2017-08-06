@@ -32,12 +32,11 @@ int main(int argc, char *argv[])
 
 		int elapsed = SDL_GetTicks();
 
-		screen.clear();
 		swarm.update(elapsed);
 
-		int red = (1 + sin(elapsed * 0.0001)) * 128;
+		int red = (1 + sin(elapsed * 0.0003)) * 128;
 		int green = (1 + sin(elapsed * 0.0002)) * 128;
-		int blue = (1 + sin(elapsed * 0.0003)) * 128;
+		int blue = (1 + sin(elapsed * 0.0001)) * 128;
 
 		const Particle * const pParticles = swarm.getParticles();
 
@@ -51,15 +50,7 @@ int main(int argc, char *argv[])
 			screen.setPixel(x, y, red, green, blue);
 		}
 
-		/*
-		for (int y = 0; y < Screen::SCREEN_HEIGHT; y++)
-		{
-			for (int x = 0; x < Screen::SCREEN_WIDTH; x++)
-			{
-				screen.setPixel(x, y, red, green, blue);
-			}
-		}
-		*/
+		screen.boxBlur();
 
 		//Draw the screen
 		screen.update();
