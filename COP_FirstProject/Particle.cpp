@@ -7,13 +7,13 @@
 using namespace caveofprogramming;
 using namespace std;
 
-void Particle::update()
+void Particle::update(int interval)
 {
 	double xspeed = m_speed * cos(m_direction);
 	double yspeed = m_speed * sin(m_direction);
 
-	m_x += xspeed;
-	m_y += yspeed;
+	m_x += xspeed * interval;
+	m_y += yspeed * interval;
 }
 
 Particle::Particle()
@@ -22,7 +22,7 @@ Particle::Particle()
 	m_y = 0;
 
 	m_direction = (2 * M_PI * rand()) / RAND_MAX;
-	m_speed = (0.001 * rand()) / RAND_MAX;
+	m_speed = (0.00019 * rand()) / RAND_MAX;
 }
 
 

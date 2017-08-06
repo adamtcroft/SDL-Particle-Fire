@@ -10,7 +10,7 @@ namespace caveofprogramming
 		double m_speed;
 		double m_direction;
 
-		void update();
+		void update(int intervals);
 		Particle();
 		virtual ~Particle();
 	};
