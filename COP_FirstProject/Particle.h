@@ -7,11 +7,14 @@ namespace caveofprogramming
 	public:
 		double m_x;
 		double m_y;
-		double m_speed;
-		double m_direction;
 
 		void update(int intervals);
 		Particle();
 		virtual ~Particle();
+
+	private:
+		double m_speed;
+		double m_direction;
+		void init();
 	};
 }
